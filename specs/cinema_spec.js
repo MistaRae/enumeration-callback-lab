@@ -54,14 +54,14 @@ describe('Cinema', function () {
 
   it('should be able to check whether there are no films from a particular year', function () {
     const actual = cinema.checkForNoFilmByYear(2020);
-    const expected = "No Films in this Year."
+    const expected = false;
     assert.deepStrictEqual(actual, expected);
   });
   
 
   it('should be able to check whether all films are over a particular length', function() {
     const actual = cinema.checkOverLength(120);
-    const expected = 'No';
+    const expected = false;
     assert.deepStrictEqual(actual,expected);
   });
 

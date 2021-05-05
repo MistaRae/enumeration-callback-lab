@@ -47,24 +47,39 @@ Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
       return film;
     };
   });
-  if (result.length===0) {
-    return "No Films in this Year."
+  if (result.length === 0 ) {
+    return false;
   } else {
-    return "There are Films in this Year."
-  }
+    return true;
+  };
 };
 
+// Cinema.prototype.checkOverLength = function (movieLength) {
+//   const result = this.films.filter((film) => {
+//     if (film.length > movieLength) {
+//       return film;
+//     };
+//   });
+//   if (result.length !== this.films.length) {
+//     return true;
+//   } else {
+//     return false;
+//   };
+// };
+
+// Cinema.prototype.checkOverLength = function (movieLength) {
+//   const result = this.films.every((filmLength, ) => {
+
+
+//   })
+// };
+
 Cinema.prototype.checkOverLength = function (movieLength) {
-  const result = this.films.filter((film) => {
-    if (film.length > movieLength) {
-      return film;
-    };
-  });
-  if (result.length !== this.films.length) {
-    return "No"
-  } else {
-    return "Yes"
+  function checkOver(film) {
+    return film.length > movieLength;
   };
+  const result = this.films.every(checkOver);
+  return result;
 };
 
 Cinema.prototype.totalRunTime = function () {
