@@ -29,5 +29,28 @@ Cinema.prototype.findByTitle = function(movieTitle){
         return film;
       };
     });
+    return result
+  };
+
+  Cinema.prototype.findByYear = function (movieYear) {
+    const result = this.films.filter((film) => {
+      if (film.year === movieYear) {
+        return film;
+      };
+    });
     return result;
+  };
+
+Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
+  const result = this.films.filter((film) => {
+    if (film.year === movieYear) {
+      return film;
+    };
+  });
+  if (result.length===0) {
+    return "No Films in this Year."
+  } else {
+    return "There are Films in this Year."
   }
+};
+
