@@ -71,4 +71,15 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, expected)
   });
 
+  it('cinema should be able to find films by year', function() {
+    const actual = cinema.findByYear(2016);
+    const expected = [moonlight];
+    assert.deepStrictEqual(actual, expected);
+  });
+
+  it('should be able to search by different property', function() {
+    const actual = cinema.searchByProperty('year', 2018);
+    const expected = [blackPanther]
+    assert.deepStrictEqual(actual, expected);
+  })
 });

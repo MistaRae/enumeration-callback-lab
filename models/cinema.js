@@ -13,39 +13,53 @@ Cinema.prototype.getFilmTitles = function(){
   return result;
 };
 
-Cinema.prototype.findByTitle = function(movieTitle){
+Cinema.prototype.searchByProperty = function (property, propertyValue) {
   const result = this.films.filter((film) => {
-      if (film.title === movieTitle) {
+      if (film[property] === propertyValue) {
         return film;
       }
     });
     return result;
   };  
 
+// Cinema.prototype.findByTitle = function(movieTitle){
+//   const result = this.films.filter((film) => {
+//       if (film.title === movieTitle) {
+//         return film;
+//       }
+//     });
+//     return result;
+//   };  
 
-  Cinema.prototype.filterByGenre = function(movieGenre) {
-    const result = this.films.filter((film) => {
+Cinema.prototype.findByTitle = function(movieTitle){
+  const result = this.searchByProperty('title', movieTitle);
+  return result;
+  };  
+
+
+Cinema.prototype.filterByGenre = function(movieGenre) {
+  const result = this.films.filter((film) => {
       if (film.genre === movieGenre) {
-        return film;
-      };
-    });
-    return result
-  };
+      return film;
+    };
+  });
+  return result
+};
 
-  Cinema.prototype.findByYear = function (movieYear) {
-    const result = this.films.filter((film) => {
-      if (film.year === movieYear) {
-        return film;
-      };
-    });
-    return result;
-  };
+Cinema.prototype.findByYear = function (movieYear) {
+  const result = this.films.filter((film) => {
+    if (film.year === movieYear) {
+      return film;
+    };
+  });
+  return result;
+};
 
 Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
-  function checkNoFilms (film) {
+  function checkFilmInYear (film) {
     return film.year === movieYear;
   };
-  const result = this.films.some(checkNoFilms);
+  const result = this.films.some(checkFilmInYear);
   return result;
 };
 
@@ -96,3 +110,12 @@ Cinema.prototype.totalRunTime = function () {
   },0);
   return result
 };
+
+Cinema.prototype.searchByProperty = function (property, propertyValue) {
+  const result = this.films.filter((film) => {
+      if (film[property] === propertyValue) {
+        return film;
+      }
+    });
+    return result;
+  };  
