@@ -54,3 +54,22 @@ Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
   }
 };
 
+Cinema.prototype.checkOverLength = function (movieLength) {
+  const result = this.films.filter((film) => {
+    if (film.length > movieLength) {
+      return film;
+    };
+  });
+  if (result.length !== this.films.length) {
+    return "No"
+  } else {
+    return "Yes"
+  };
+};
+
+Cinema.prototype.totalRunTime = function () {
+  const result = this.films.reduce((runningTotal, film) => {
+    return runningTotal + film.length
+  },0);
+  return result
+};
