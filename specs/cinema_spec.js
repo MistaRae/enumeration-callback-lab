@@ -28,19 +28,19 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, films);
   });
 
-  it('should be able to get a list of film titles', function(){
+  it('should be able to get a list of film titles', function () {
     const actual = cinema.getFilmTitles();
-    const expected = [ 'Moonlight', 'Blade Runner 2049', 'Dunkirk', 'Black Panther', 'T2 Trainspotting' ];
-    assert.deepStrictEqual(actual, expected );
+    const expected = ['Moonlight', 'Blade Runner 2049', 'Dunkirk', 'Black Panther', 'T2 Trainspotting'];
+    assert.deepStrictEqual(actual, expected);
   });
 
-  it('should be able to find a film by title', function(){
+  it('should be able to find a film by title', function () {
     const actual = cinema.findByTitle('Dunkirk');
     const expected = [dunkirk];
     assert.deepStrictEqual(actual, expected);
   });
 
-  it('should be able to filter films by genre', function() {
+  it('should be able to filter films by genre', function () {
     const actual = cinema.filterByGenre('drama');
     const expected = [moonlight, trainspotting];
     assert.deepStrictEqual(actual, expected);
@@ -57,12 +57,12 @@ describe('Cinema', function () {
     const expected = false;
     assert.deepStrictEqual(actual, expected);
   });
-  
 
-  it('should be able to check whether all films are over a particular length', function() {
+
+  it('should be able to check whether all films are over a particular length', function () {
     const actual = cinema.checkOverLength(120);
     const expected = false;
-    assert.deepStrictEqual(actual,expected);
+    assert.deepStrictEqual(actual, expected);
   });
 
   it('should be able to calculate total running time of all films', function () {
@@ -71,13 +71,13 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, expected)
   });
 
-  it('cinema should be able to find films by year', function() {
+  it('cinema should be able to find films by year', function () {
     const actual = cinema.findByYear(2016);
     const expected = [moonlight];
     assert.deepStrictEqual(actual, expected);
   });
 
-  it('should be able to search by different property', function() {
+  it('should be able to search by different property', function () {
     const actual = cinema.searchByProperty('year', 2018);
     const expected = [blackPanther]
     assert.deepStrictEqual(actual, expected);

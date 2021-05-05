@@ -5,9 +5,9 @@ const Cinema = function (films) {
 module.exports = Cinema;
 
 
-Cinema.prototype.getFilmTitles = function(){
+Cinema.prototype.getFilmTitles = function () {
   const result = this.films.map((film
-    ) => {
+  ) => {
     return film['title']
   });
   return result;
@@ -15,82 +15,36 @@ Cinema.prototype.getFilmTitles = function(){
 
 Cinema.prototype.searchByProperty = function (property, propertyValue) {
   const result = this.films.filter((film) => {
-      if (film[property] === propertyValue) {
-        return film;
-      }
-    });
-    return result;
-  };  
+    if (film[property] === propertyValue) {
+      return film;
+    }
+  });
+  return result;
+};
 
-// Cinema.prototype.findByTitle = function(movieTitle){
-//   const result = this.films.filter((film) => {
-//       if (film.title === movieTitle) {
-//         return film;
-//       }
-//     });
-//     return result;
-//   };  
-
-Cinema.prototype.findByTitle = function(movieTitle){
+Cinema.prototype.findByTitle = function (movieTitle) {
   const result = this.searchByProperty('title', movieTitle);
   return result;
-  };  
+};
 
 
-Cinema.prototype.filterByGenre = function(movieGenre) {
+Cinema.prototype.filterByGenre = function (movieGenre) {
   const result = this.searchByProperty('genre', movieGenre);
   return result;
 };
 
 Cinema.prototype.findByYear = function (movieYear) {
-  const result = this.films.filter((film) => {
-    if (film.year === movieYear) {
-      return film;
-    };
-  });
+  const result = this.searchByProperty('year', movieYear);
   return result;
 };
 
 Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
-  function checkFilmInYear (film) {
+  function checkFilmInYear(film) {
     return film.year === movieYear;
   };
   const result = this.films.some(checkFilmInYear);
   return result;
 };
-
-// Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
-//   const result = this.films.filter((film) => {
-//     if (film.year === movieYear) {
-//       return film;
-//     };
-//   });
-//   if (result.length === 0 ) {
-//     return false;
-//   } else {
-//     return true;
-//   };
-// };
-
-// Cinema.prototype.checkOverLength = function (movieLength) {
-//   const result = this.films.filter((film) => {
-//     if (film.length > movieLength) {
-//       return film;
-//     };
-//   });
-//   if (result.length !== this.films.length) {
-//     return true;
-//   } else {
-//     return false;
-//   };
-// };
-
-// Cinema.prototype.checkOverLength = function (movieLength) {
-//   const result = this.films.every((filmLength, ) => {
-
-
-//   })
-// };
 
 Cinema.prototype.checkOverLength = function (movieLength) {
   function checkOver(film) {
@@ -103,15 +57,15 @@ Cinema.prototype.checkOverLength = function (movieLength) {
 Cinema.prototype.totalRunTime = function () {
   const result = this.films.reduce((runningTotal, film) => {
     return runningTotal + film.length
-  },0);
+  }, 0);
   return result
 };
 
 Cinema.prototype.searchByProperty = function (property, propertyValue) {
   const result = this.films.filter((film) => {
-      if (film[property] === propertyValue) {
-        return film;
-      }
-    });
-    return result;
-  };  
+    if (film[property] === propertyValue) {
+      return film;
+    }
+  });
+  return result;
+};
