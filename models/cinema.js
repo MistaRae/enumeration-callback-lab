@@ -42,17 +42,25 @@ Cinema.prototype.findByTitle = function(movieTitle){
   };
 
 Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
-  const result = this.films.filter((film) => {
-    if (film.year === movieYear) {
-      return film;
-    };
-  });
-  if (result.length === 0 ) {
-    return false;
-  } else {
-    return true;
+  function checkNoFilms (film) {
+    return film.year === movieYear;
   };
+  const result = this.films.some(checkNoFilms);
+  return result;
 };
+
+// Cinema.prototype.checkForNoFilmByYear = function (movieYear) {
+//   const result = this.films.filter((film) => {
+//     if (film.year === movieYear) {
+//       return film;
+//     };
+//   });
+//   if (result.length === 0 ) {
+//     return false;
+//   } else {
+//     return true;
+//   };
+// };
 
 // Cinema.prototype.checkOverLength = function (movieLength) {
 //   const result = this.films.filter((film) => {
