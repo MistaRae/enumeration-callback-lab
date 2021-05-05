@@ -38,12 +38,8 @@ Cinema.prototype.findByTitle = function(movieTitle){
 
 
 Cinema.prototype.filterByGenre = function(movieGenre) {
-  const result = this.films.filter((film) => {
-      if (film.genre === movieGenre) {
-      return film;
-    };
-  });
-  return result
+  const result = this.searchByProperty('genre', movieGenre);
+  return result;
 };
 
 Cinema.prototype.findByYear = function (movieYear) {
